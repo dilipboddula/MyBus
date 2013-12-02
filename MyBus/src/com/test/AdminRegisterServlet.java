@@ -7,11 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.ModelDAO;
 
@@ -62,10 +64,16 @@ public class AdminRegisterServlet extends HttpServlet {
 			{
 				autokey = rs.getInt(1);
 			}
+			//HttpSession session=request.getSession();
 			request.setAttribute("myKey",autokey);
+			request.setAttribute("myTravels",travels);
+			RequestDispatcher rd=request.getRequestDispatcher("SuccessAdminRegistration.jsp");
+			rd.forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			RequestDispatcher rd=request.getRequestDispatcher("ErrorAdminRegisterServlet.jsp");
+			rd.forward(request, response);
 		}
 	}
 

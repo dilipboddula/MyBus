@@ -36,35 +36,45 @@ public class AdminLoginCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     static Connection connection;
-    String query="select adminPassword,travels from adminDetails where adminUserName=? ";
+    String query="select * from adminDetails where adminUserName=?";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String adminUserName=request.getParameter("adminUserName");
-		String adminPassword=request.getParameter("adminPassword");
+		String adminp=request.getParameter("adminPassword");
 		connection = ModelDAO.connectDB();	
 		try {
 			PreparedStatement ps =connection.prepareStatement(query);
 			ps.setString(1,adminUserName);
 			ResultSet rs;
-			rs =ps.executeQuery("query");
+			System.out.println("Before query");
+			rs=ps.executeQuery();
+			System.out.println("After query");
 			while (rs.next())
 			{
+				System.out.println("in query");
 				String passwordDatabase=rs.getString("adminPassword");
-				if (passwordDatabase==adminPassword)
+				System.out.println("passwords "+passwordDatabase);
+				if (adminp.equalsIgnoreCase(passwordDatabase))
 				{
-					String travels=rs.getString("travels");
-					HttpSession session=request.getSession();
-					session.setAttribute("myTravels", travels);
+					System.out.println("OK");
+					//String travels=rs.getString("travels");
+					//HttpSession session=request.getSession();
+					//session.setAttribute("myTravels", travels);
 					RequestDispatcher rd=request.getRequestDispatcher("BusRegister.jsp");
-					rd.forward(request, response);
+					rd.forward(request,response);
+					return;
+				
 				}
 				else
 				{
+					System.out.println("Error");
 					RequestDispatcher rd=request.getRequestDispatcher("ErrorAdminLogin.jsp");
-					rd.forward(request, response);
+					
+					
 				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

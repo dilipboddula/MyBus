@@ -23,7 +23,7 @@
 <tr>
 </table>
 <input type="submit" value="Login">
-<input type="button" value="New User" onclick="window.location('adminRegistrationForm.jsp')">
+<input type="button" value="New User" onclick="window.location='adminRegistrationForm.jsp'">
 </form>
 
 </body>

@@ -9,17 +9,17 @@
 <!--
  function fun()
                {
-        
+        					alert("hello");
                               if(document.myform.travels.value=="")
                                    {
                                     alert("Travelname cannot be null");
                                     document.myform.travels.focus();
                                 
                                    }
-                              else if (document.myform.adminUsername.value=="")
+                              else if (document.myform.adminUserName.value=="")
                                    {
                                     alert("username cannot be null");
-                                    document.myform.username.focus();
+                                    document.myform.adminUserName.focus();
                                     
                                    }
                               else if (document.myform.adminPassword.value=="")
@@ -31,27 +31,27 @@
                               else if (document.myform.adminConfirmPassword.value != document.myform.adminPassword.value)
                                    {
                                     alert("password not matching");
-                                    document.myform.adminConfirmPassword.focus();
-                                    return false;
+                                    document.myform.adminPassword.focus();
+                                  
                                    }
                               else if (document.myform.adminPhone.value=="")
                                   {
                                    alert("phone number cannot be null");
                                    document.myform.adminPhone.focus();
-                                   return false;
+                                 
                                   }
                               else if (document.myform.adminEmail.value=="")
                                   {
                                    alert("email cannot be null");
                                    document.myform.adminEmail.focus();
-                                   return false;
+                               
                                   }
                               
                               else 
                                   {
-                                   //alert("you are registered");
+                                   alert("you are registered");
                                    document.myform.submit();
-                                   return true;
+                            
                                   }
                               
                }
