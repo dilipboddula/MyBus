@@ -33,7 +33,6 @@ body {
 <form action="pop" align="center">
 <table border="10" cellspacing=5px cellpadding=10px bgcolor="yellow" align="center">
 
-<tr>
 <td>From</td>
 <td><select name="from" class="c" align="center" style="background-color:white">
 <option value="Bangalore">Bangalore
