@@ -7,27 +7,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.model.ModelDAO;
 
 /**
- * Servlet implementation class AdminLoginCheckServlet
+ * Servlet implementation class AdminRegisterServlet
  */
-@WebServlet("/AdminLoginCheckServlet")
-public class AdminLoginCheckServlet extends HttpServlet {
+@WebServlet("/AdminRegisterServlet")
+public class AdminRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminLoginCheckServlet() {
+    public AdminRegisterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,33 +34,35 @@ public class AdminLoginCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     static Connection connection;
-    String query="select adminPassword,travels from adminDetails where adminUserName=? ";
+    String insertquery="insert into adminDetails(travels,adminUserName,adminPassword,adminPhone,adminEmail) values(?,?,?,?,?)";
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String adminUserName=request.getParameter("adminUserName");
-		String adminPassword=request.getParameter("adminPassword");
+		String travels=request.getParameter("travels");
+		String adminUserName=request.getParameter("adminUserName");		
+		String adminPassword =request.getParameter("adminPassword");				
+		String p =request.getParameter("adminPhone");
+		long adminPhone=Long.parseLong(p);
+		String adminEmail=request.getParameter("adminEmail");
+		
+		//creating connection to database and inserting into table
 		connection = ModelDAO.connectDB();	
 		try {
-			PreparedStatement ps =connection.prepareStatement(query);
-			ps.setString(1,adminUserName);
-			ResultSet rs;
-			rs =ps.executeQuery("query");
-			while (rs.next())
+			PreparedStatement ps =connection.prepareStatement(insertquery,Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1,travels);
+			ps.setString(2,adminUserName);
+			ps.setString(3,adminPassword);
+			ps.setLong(4, adminPhone);
+			ps.setString(5,adminEmail);
+			//executing query
+			ps.execute();
+			
+			int autokey=0;
+			ResultSet rs=ps.getGeneratedKeys();
+			while(rs.next())
 			{
-				String passwordDatabase=rs.getString("adminPassword");
-				if (passwordDatabase==adminPassword)
-				{
-					String travels=rs.getString("travels");
-					HttpSession session=request.getSession();
-					session.setAttribute("myTravels", travels);
-					RequestDispatcher rd=request.getRequestDispatcher("BusRegister.jsp");
-					rd.forward(request, response);
-				}
-				else
-				{
-					RequestDispatcher rd=request.getRequestDispatcher("ErrorAdminLogin.jsp");
-					rd.forward(request, response);
-				}
+				autokey = rs.getInt(1);
 			}
+			request.setAttribute("myKey",autokey);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
