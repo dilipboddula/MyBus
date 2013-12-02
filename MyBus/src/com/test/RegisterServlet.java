@@ -24,7 +24,7 @@ public class RegisterServlet extends HttpServlet {
     }
 
     static Connection connection;
-    String insertquery="insert into bus(driverName,from,to,dhr,dmin,ahr,amin,busType,seats,cost,driverEmail) values(?,?,?,?,?,?,?,?,?,?,?)";
+    String insertquery="insert into bus(ownerid,driverName,from,to,dhr,dmin,ahr,amin,busType,seats,cost,driverPhone) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
