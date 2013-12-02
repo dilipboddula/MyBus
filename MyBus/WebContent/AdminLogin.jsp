@@ -8,17 +8,17 @@
 </head>
 <body>
 <body>
-<form action="regserv">
+<form action="AdminLoginCheckServlet">
 <table border="1" bgcolor="rgb(238, 17, 203)">
 
 <tr>
 <td>Admin UserName</td>
-    <td><input type ="text" name="AdminUserName" placeholder="Admin User Name"/></td>
+    <td><input type ="text" name="adminUserName" placeholder="Admin User Name"/></td>
 </tr>
 <tr>
 <tr>
 <td>Password</td>
-    <td><input type ="password" name="AdminPassword" placeholder="Admin Password"/></td>
+    <td><input type ="password" name="adminPassword" placeholder="Admin Password"/></td>
 </tr>
 <tr>
 </table>

@@ -33,7 +33,7 @@ visitor count <%=count++%>
 <h1>Welcome to MyBus in India..This is Dilip on the way</h1>
 <form >
 
-<input type="button" class="a" color="orange" id="c" value="admin" onclick="window.location='register.jsp'">
+<input type="button" class="a" color="orange" id="c" value="admin" onclick="window.location='AdminLogin.jsp'">
 <input type="button" class="b" color="violet" id="c" value="user" onclick="window.location='city.jsp'">
 <img src="logo.jpg" height=120px ></img>
 </form>
