@@ -30,7 +30,7 @@ font-size:100px;
 <body bgcolor="green">
 <%!int count=1;%>
 visitor count <%=count++%>
-<h1>Welcome to MyBus in India..</h1>
+<h1>Welcome to MyBus in India..This is Dilip</h1>
 <form >
 
 <input type="button" class="a" color="orange" id="c" value="admin" onclick="window.location='register.jsp'">
