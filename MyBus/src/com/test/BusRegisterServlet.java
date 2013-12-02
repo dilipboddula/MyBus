@@ -14,17 +14,17 @@ import javax.servlet.http.HttpSession;
 
 import com.model.ModelDAO;
 
-@WebServlet("/regserv")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/BusRegisterServlet")
+public class BusRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
-    public RegisterServlet() {
+    public BusRegisterServlet() {
         super();
         
     }
 
     static Connection connection;
-    String insertquery="insert into bus(ownerid,driverName,from,to,dhr,dmin,ahr,amin,busType,seats,cost,driverPhone) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+    String insertquery="insert into busDetails(driverName,fromPlace,toPlace,d1,d2,a1,a2,busType,seats,cost,driverPhone,adminId) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
@@ -47,13 +47,19 @@ public class RegisterServlet extends HttpServlet {
 
 		String busType=request.getParameter("busType");
 
-		String seats1=(String)request.getParameter("seats");
+		String seats1=request.getParameter("seats");
 		int seats=Integer.parseInt(seats1);
-		String cost1=(String)request.getParameter("cost");
+		//System.out.println(seats);
+		String cost1=request.getParameter("cost");
 		int cost=Integer.parseInt(cost1);
 		
 		
-		String driverEmail=request.getParameter("driverEmail");
+		String p=request.getParameter("driverPhone");
+		long driverPhone=Long.parseLong(p);
+		HttpSession session=request.getSession();
+		int adminID=(Integer)session.getAttribute("myAdminID");
+		
+		//System.out.println(adminID);
 		
 		
 		//creating connection to database and inserting into table
@@ -70,7 +76,8 @@ public class RegisterServlet extends HttpServlet {
 			ps.setString(8,busType);
 			ps.setInt(9,seats);
 			ps.setInt(10,cost);
-			ps.setString(11,driverEmail);
+			ps.setLong(11,driverPhone);
+			ps.setInt(12,adminID);
 			//executing query
 			ps.execute();
 			
@@ -80,15 +87,19 @@ public class RegisterServlet extends HttpServlet {
 			{
 				autokey = rs.getInt(1);
 			}
-			request.setAttribute("myKey",autokey);
+			//request.setAttribute("myKey",autokey);
+			
+			session.setAttribute("myKey",autokey);
+			System.out.println(autokey);
+			//dispatching attributes to success.jsp
+			RequestDispatcher rd=request.getRequestDispatcher("busAddSuccess.jsp");		
+			rd.include(request, response);			
+			return;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		//dispatching attributes to success.jsp
-		RequestDispatcher rd=request.getRequestDispatcher("busAddSuccess.jsp");		
-		rd.include(request, response);
 		
 
 	}

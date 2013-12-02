@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*,com.model.BusSelectClass"%>
+    pageEncoding="ISO-8859-1" import="java.util.*,com.model.BusFilterClass"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-	ArrayList<BusSelectClass> fl=(ArrayList<BusSelectClass>)session.getAttribute("myConfirm");
+	ArrayList<BusFilterClass> fl=(ArrayList<BusFilterClass>)session.getAttribute("myConfirm");
 %>
 <table border="1" bgcolor="rgb(238, 17, 203)">		  
 <tr>
@@ -19,7 +19,7 @@
 <th>city</th>
 </tr>		
 <%
-			for (BusSelectClass v : fl) {
+			for (BusFilterClass v : fl) {
 		%>		 
 <tr>
 <td><%out.println(v.getDriverid()); %></td>				

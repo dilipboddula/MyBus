@@ -30,11 +30,11 @@ body {
 </style>
 </head>
 <body>
-<form action="pop" align="center">
+<form action="BusFilterServlet" align="center">
 <table border="10" cellspacing=5px cellpadding=10px bgcolor="yellow" align="center">
 
 <td>From</td>
-<td><select name="from" class="c" align="center" style="background-color:white">
+<td><select name="fromPlace" class="c" align="center" style="background-color:white">
 <option value="Bangalore">Bangalore
 <option value ="Hyderabad">Hyderabad
 <option value="Chennai">Chennai
@@ -46,12 +46,12 @@ body {
 <tr>
 
 <td>To</td>
-<td><select name="to" class="c" align="center" style="background-color:white">
+<td><select name="toPlace" class="c" align="center" style="background-color:white">
 <option value="Bangalore">Bangalore
 <option value ="Hyderabad">Hyderabad
 <option value="Chennai">Chennai
 <option value="Delhi">Delhi
-<option style="font-family:impact">bb</option>
+<option style="font-family:impact"></option>
 </select>
 </td>
 </tr>

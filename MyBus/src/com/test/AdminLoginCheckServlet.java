@@ -55,10 +55,12 @@ public class AdminLoginCheckServlet extends HttpServlet {
 				System.out.println("passwords "+passwordDatabase);
 				if (adminp.equalsIgnoreCase(passwordDatabase))
 				{
-					System.out.println("OK");
-					//String travels=rs.getString("travels");
-					//HttpSession session=request.getSession();
-					//session.setAttribute("myTravels", travels);
+					//System.out.println("OK");
+					String i=rs.getString("adminId");
+					int adminId=Integer.parseInt(i);
+					HttpSession session=request.getSession();
+					session.setAttribute("myAdminID",adminId);
+					System.out.println(adminId);
 					RequestDispatcher rd=request.getRequestDispatcher("BusRegister.jsp");
 					rd.forward(request,response);
 					return;

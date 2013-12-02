@@ -7,7 +7,7 @@
 <title>Bus Registration</title>
 </head>
 <body>
-<form action="regserv">
+<form action="BusRegisterServlet">
 <table border="1" bgcolor="rgb(238, 17, 203)">
 
 <tr>
@@ -76,7 +76,7 @@
 </tr>
 <tr>
 <td>No. of Seats</td>
-    <td><input type ="text" name="nos" placeholder="No. of seats"/></td>
+    <td><input type ="text" name="seats" placeholder="No. of seats"/></td>
 </tr>
 
 <tr>
@@ -86,8 +86,8 @@
 
 
 <tr>
-<td> Driver email</td>
-    <td><input type ="text" name="driverEmail" placeholder="email id"/></td>
+<td> Driver phone</td>
+    <td><input type ="text" name="driverPhone" placeholder="phone number"/></td>
 </tr>
 
 </table>

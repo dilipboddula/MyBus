@@ -13,7 +13,9 @@
 	
 	//getting autokey from register servlet using get attribute
 	
-	Integer key=(Integer)request.getAttribute("myKey");
+	int key=(Integer)session.getAttribute("myKey");
+	//System.out.println(key);
+	out.println(key);
 	out.println("<h2>The bus has been registered with Our Service.Bus unique Id is BMW2345612"+key+" </h2>");
 %>
 <h1>you have successfully registered</h1>
