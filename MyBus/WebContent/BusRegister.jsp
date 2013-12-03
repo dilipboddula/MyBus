@@ -5,8 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Bus Registration</title>
+<style type="text/css">
+body
+{
+background-image:url('vt-animation-G1.gif');
+background-repeat:no-repeat;
+
+}
+</style>
 </head>
 <body>
+<h1 style="color:white">Enter the details</h1>
 <form action="BusRegisterServlet">
 <table border="1" bgcolor="rgb(238, 17, 203)">
 

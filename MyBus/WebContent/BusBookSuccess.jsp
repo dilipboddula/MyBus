@@ -8,8 +8,8 @@
 </head>
 <body>
 <h1>Congratulations 
-<%=session.getAttribute("myUserName") %>
-  your Bus has been Booked succussfully.
+<%=session.getAttribute("myUserName") %><br>
+  your ticket has been Booked succussfully.
  </h1>
  <br><h2>Your Ticket Details are
  </h2>
@@ -42,6 +42,6 @@
 		<td><%=v.getDriverPhone() %>		
 		</tr>		
 		 </table> 
-<input type="button" value="click here to make Another Transaction" onclick="window.location('city.jsp')">
+<input type="button" value="click here to make Another Transaction" onclick="window.location='city.jsp'">
 </body>
 </html>

@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+body
+{
+background-image:url('hd-wallpaper1.jpg');
+}
+</style>
 </head>
 <body>
 <%
@@ -18,6 +24,6 @@
 	out.println(key);
 	out.println("<h2>The bus has been registered with Our Service.Bus unique Id is BMW2345612"+key+" </h2>");
 %>
-<h1>you have successfully registered</h1>
+<marquee><h1 style="color:white">you have successfully registered</h1></marquee>
 </body>
 </html>

@@ -1,11 +1,17 @@
 package com.test;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.model.BusFilterClass;
 
 /**
  * Servlet implementation class BusPreConfirmServlet
@@ -29,6 +35,11 @@ public class BusPreConfirmServlet extends HttpServlet {
 		String bid=request.getParameter("r1");
 		int busId=Integer.parseInt(bid);
 		System.out.println(busId);
+		HttpSession session=request.getSession(true);
+		session.setAttribute("myBusId", busId);
+		RequestDispatcher rd=request.getRequestDispatcher("UserBusConfirm.jsp");
+		rd.forward(request, response);
+	
 		
 	}
 

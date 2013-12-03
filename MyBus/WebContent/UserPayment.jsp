@@ -7,11 +7,9 @@
 <title>Payment page</title>
 </head>
 <body>
-<%int cost=(Integer)session.getAttribute("mySelectedBusCost"); 
-String userName=(String)session.getAttribute("myUserName");
-%>
-<h1>Hello <%=userName %></h1>
-<h1>pay the amount <%=cost %> to book the seat</h1>
+
+<h1>Hello <%=(String)session.getAttribute("myUserName") %></h1>
+<h1>pay the amount <%=(Integer)session.getAttribute("mySelectBusCost") %> to book the seat</h1>
 <form action="BusBookingServlet">
 <input type="submit" value="Click here to Pay" >
 <input type="button" value="Click here to cancel" onclick="window.location('city.jsp')">

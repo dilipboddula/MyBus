@@ -8,7 +8,7 @@
 <style type="text/css">
 body
 {
-background-image:url('cars.jpg');
+background-image:url('bs2.jpg');
 }
 .a{
 color:green;
@@ -20,6 +20,9 @@ color:blue;
 text-align:center;
 font color:yellow;
 }
+.f{
+position:top right;
+}
 #c{
 text type:bold;
 color:maroon;
@@ -27,15 +30,17 @@ text-align:center;
 font-size:100px;
 }</style>
 </head>
-<body bgcolor="green">
+<body bgcolor="AntiqueWhite">
 <%!int count=1;%>
 visitor count <%=count++%>
-<h1>Welcome to MyBus in India..This is Dilip on the way</h1>
+<h1 class="a" style="type:bold">Welcome to MyBus in India......</h1>
+<h2 class="f">Toll-freeno:1800-254681</h2>
 <form >
 
 <input type="button" class="a" color="orange" id="c" value="admin" onclick="window.location='AdminLogin.jsp'">
 <input type="button" class="b" color="violet" id="c" value="user" onclick="window.location='city.jsp'">
-<img src="logo.jpg" height=120px ></img>
 </form>
-<
+
+
+</body>
 </html>

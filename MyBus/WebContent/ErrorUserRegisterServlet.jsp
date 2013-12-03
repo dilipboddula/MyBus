@@ -4,18 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<style type="text/css">
-body
-{
-background-image:url('Windows-7.jpg');
-background-repeat:no-repeat;
-
-}
-</style>
+<title>Error Page</title>
 </head>
 <body>
 <h1>Error in Registration.Kindly try after sometime !!</h1>
-<input type="button" value="Click here to Login ">
+<input type="button" value="Click here to Login " onclick="window.location('userRegistrationForm.jsp')">
+
 </body>
 </html>

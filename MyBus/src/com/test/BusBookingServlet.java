@@ -42,15 +42,17 @@ public class BusBookingServlet extends HttpServlet {
 		ArrayList<BusFilterClass> al=(ArrayList<BusFilterClass>)request.getAttribute("mySelectedBus");
 		
 		int busId=(Integer)session.getAttribute("mySelectedBusId");
-		int userId=(Integer)session.getAttribute("myUserId");
+		System.out.println(busId);
+		int userId=(Integer)session.getAttribute("myUserID");
+		System.out.println("userid "+userId);
 		String userEmail=(String)session.getAttribute("myUserEmail");
-		
+		System.out.println("user email"+userEmail);
 		connection = ModelDAO.connectDB();	
 		try {
 			PreparedStatement ps =connection.prepareStatement(insertquery,Statement.RETURN_GENERATED_KEYS);
-			ps.setInt(1, busId);
-			ps.setInt(2, userId);
-			ps.setString(3, userEmail);
+			ps.setInt(1,busId);
+			ps.setInt(2,userId);
+			ps.setString(3,userEmail);
 			//executing query
 			ps.execute();
 			

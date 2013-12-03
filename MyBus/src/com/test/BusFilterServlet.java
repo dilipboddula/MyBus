@@ -29,7 +29,7 @@ public class BusFilterServlet extends HttpServlet {
         
     }
     static Connection connection;
-    String selectquery="select * from busDetails where fromPlace=? AND toPlace=?";
+    String query="select * from busDetails where fromPlace=? AND toPlace=?";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String fromPlace=request.getParameter("fromPlace");
 	String toPlace=request.getParameter("toPlace");
@@ -44,12 +44,12 @@ public class BusFilterServlet extends HttpServlet {
 	System.out.println("After Connection");
 	ArrayList<BusFilterClass> al=new ArrayList<BusFilterClass>();
 	try {
-		PreparedStatement ps =connection.prepareStatement(selectquery);
+		PreparedStatement ps =connection.prepareStatement(query);
 		System.out.println("after prepared statement");
 		ps.setString(1,fromPlace);
 		ps.setString(2,toPlace);
 		ResultSet rs;
-		rs= ps.executeQuery(selectquery);
+		rs= ps.executeQuery();
 		System.out.println("after Execute");
 		while(rs.next()){
 			

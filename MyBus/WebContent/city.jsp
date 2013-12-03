@@ -30,6 +30,7 @@ body {
 </style>
 </head>
 <body>
+<marquee><h1 style="color:blue">Bus Booking </h1></marquee>
 <form action="BusFilterServlet" align="center">
 <table border="10" cellspacing=5px cellpadding=10px bgcolor="yellow" align="center">
 
@@ -39,7 +40,6 @@ body {
 <option value ="Hyderabad">Hyderabad
 <option value="Chennai">Chennai
 <option value="Delhi">Delhi
-<option style="font-family:impact">bb</option>
 </select>
 </td>
 </tr>
@@ -51,7 +51,6 @@ body {
 <option value ="Hyderabad">Hyderabad
 <option value="Chennai">Chennai
 <option value="Delhi">Delhi
-<option style="font-family:impact"></option>
 </select>
 </td>
 </tr>

@@ -60,7 +60,7 @@ public class UserLoginCheckServlet extends HttpServlet {
 					int userId=Integer.parseInt(i);
 					String userName=rs.getString("userName");
 					String userEmail=rs.getString("userEmail");
-					HttpSession session=request.getSession();
+					HttpSession session=request.getSession(true);
 					session.setAttribute("myUserID",userId);
 					session.setAttribute("myUserName",userName);
 					session.setAttribute("myUserEmail",userEmail);

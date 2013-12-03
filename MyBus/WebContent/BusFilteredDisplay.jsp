@@ -22,8 +22,9 @@
 		<th>cost</th>
 		</tr>		
 <%
-			ArrayList<BusFilterClass> al=(ArrayList<BusFilterClass>)request.getAttribute("myBusFilterList");
-			  for (BusFilterClass v : al) {	%>	
+			ArrayList<BusFilterClass> al=(ArrayList<BusFilterClass>)request.getAttribute("myBusFilterList");%>
+			<%session.setAttribute("myBusFilterList",al); %>	 
+		<%for (BusFilterClass v : al) {	%>	
 		<tr>
 		<td><input type="radio" name="r1" value=<%=v.getBusId()%> ></td>
 		<td><%out.println(v.getDrivername()); %></td>				
@@ -37,7 +38,7 @@
 		</tr>
 		<%} %>
 		 </table>
-		 <%request.setAttribute("myBusFilterListDup",al); %>
+		
 		 <input type="submit" value="Books Bus">
 		 </form>
 	  

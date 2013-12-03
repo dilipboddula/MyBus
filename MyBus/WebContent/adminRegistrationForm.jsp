@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+body
+{
+	background-image:url('administrator2.jpg');
+	background-repeat:no-repeat;
+	}
+	</style>
 <script type="text/javascript">
 <!--
  function fun()
@@ -59,9 +66,10 @@
 
 </script>
 </head>
-<body>
+<body bgcolor="orange">
+<h1>REGISTRATION FORM FOR NEW ADMINISTRATORS</h1>
 <form name="myform" action="AdminRegisterServlet">
-<table border="1" bgcolor="rgb(238, 17, 203)">
+<table border="1" bgcolor="rgb(255, 255, 255)">
 
 <tr>
 <td>Travels</td>

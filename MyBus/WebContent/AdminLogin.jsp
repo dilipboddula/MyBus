@@ -5,11 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+body
+{
+background-image:url('hd.jpg');
+background-repeat:no-repeat;
+background-size:1000px 1000px;
+align:"center";
+}
+
+</style>
 </head>
 <body>
 <body>
+<h1>Please login to access</h1>
 <form action="AdminLoginCheckServlet">
-<table border="1" bgcolor="rgb(238, 17, 203)">
+<table border="1" bgcolor="green">
 
 <tr>
 <td>Admin UserName</td>
@@ -22,8 +33,8 @@
 </tr>
 <tr>
 </table>
-<input type="submit" value="Login">
-<input type="button" value="New User" onclick="window.location='adminRegistrationForm.jsp'">
+<input type="submit" value="Login"  style="background-color:yellow">
+<input type="button" value="New User"  style="background-color:yellow" onclick="window.location='adminRegistrationForm.jsp'">
 </form>
 
 </body>

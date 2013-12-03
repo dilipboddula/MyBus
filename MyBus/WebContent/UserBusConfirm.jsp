@@ -20,10 +20,9 @@
 		<th>cost</th>
 		</tr>		
 <%
-String bid=request.getParameter("r1");
-int busId=Integer.parseInt(bid);
+int busId=(Integer)session.getAttribute("myBusId");
 System.out.println(busId);
-			ArrayList<BusFilterClass> al=(ArrayList<BusFilterClass>)request.getAttribute("myBusFilterListDup");
+			ArrayList<BusFilterClass> al=(ArrayList<BusFilterClass>)session.getAttribute("myBusFilterList");
 			  for (BusFilterClass v : al) {	if(v.getBusId()==busId) {%>	
 		<tr>
 		
@@ -35,9 +34,11 @@ System.out.println(busId);
 		<td><%out.println(v.getBusType()); %></td>		
 		<td><%out.println(v.getSeats()); %></td>		
 		<td><%out.println(v.getCost()); %></td>		
-		<%session.setAttribute("mySelectedBus",v);
+		<%
+		session.setAttribute("mySelectedBus",v);
 		session.setAttribute("mySelectedBusId", v.getBusId());
 		session.setAttribute("mySelectBusCost",v.getCost());
+		System.out.println(v.getCost());
 		%>
 		 
 		</tr>
