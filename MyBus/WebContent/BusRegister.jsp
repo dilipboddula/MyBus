@@ -13,10 +13,53 @@ background-repeat:no-repeat;
 
 }
 </style>
+<script type="text/javascript">
+
+<!--
+function fun()
+{
+
+               if(document.myform1.driverName.value=="")
+                    {
+                     alert("Driver name cannot be blank");
+                     document.myform1.name.focus();
+                 
+                    }
+               else if (document.myform1.seats.value=="")
+               {
+                alert("seats cannot be blank");
+                document.myform1.userEmail.focus();
+               }
+               
+               else if (document.myform1.cost.value=="")
+                    {
+                     alert("cost cannot be blank");
+                     document.myform1.userPassword.focus();
+                     
+                    }
+               else if (document.myform1.driverPhone.value=="")
+                   {
+                    alert("phone number cannot be null");
+                    document.myform1.userPhone.focus();
+                
+                   }
+
+               else 
+                   {
+                    //alert("you are registered");
+                    document.myform1.submit();
+                
+                   }
+               
+}
+//-->
+//-->
+
+</script>
 </head>
 <body>
 <h1 style="color:white">Enter the details</h1>
-<form action="BusRegisterServlet">
+<form action="BusRegisterServlet" name="myform1">
 <table border="1" bgcolor="rgb(238, 17, 203)">
 
 <tr>
@@ -100,7 +143,7 @@ background-repeat:no-repeat;
 </tr>
 
 </table>
-<input type="submit" value="submit">
+<input type="button" value="submit" onclick="fun()">
 </form>
 
 </body>

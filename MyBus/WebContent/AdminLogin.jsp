@@ -15,11 +15,42 @@ align:"center";
 }
 
 </style>
+<script type="text/javascript">
+
+<!--
+function fun()
+{
+
+               if(document.myform1.adminUserName.value=="")
+                    {
+                     alert(" User name cannot be blank");
+                     document.myform1.adminUserName.focus();
+                 
+                    }
+               else if (document.myform1.adminPassword.value=="")
+               {
+                alert("Password cannot be balnk");
+                document.myform1.adminPassword.focus();
+               }
+               
+               
+               else 
+                   {
+                    //alert("you are registered");
+                    document.myform1.submit();
+                
+                   }
+               
+}
+//-->
+
+
+</script>
 </head>
 <body>
 <body>
 <h1>Please login to access</h1>
-<form action="AdminLoginCheckServlet">
+<form action="AdminLoginCheckServlet" name="myform1">
 <table border="1" bgcolor="green">
 
 <tr>
@@ -33,7 +64,7 @@ align:"center";
 </tr>
 <tr>
 </table>
-<input type="submit" value="Login"  style="background-color:yellow">
+<input type="button" value="Login" onclick="fun()" style="background-color:yellow">
 <input type="button" value="New User"  style="background-color:yellow" onclick="window.location='adminRegistrationForm.jsp'">
 </form>
 

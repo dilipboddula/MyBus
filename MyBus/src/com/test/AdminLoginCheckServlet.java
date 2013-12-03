@@ -63,14 +63,14 @@ public class AdminLoginCheckServlet extends HttpServlet {
 					System.out.println(adminId);
 					RequestDispatcher rd=request.getRequestDispatcher("BusRegister.jsp");
 					rd.forward(request,response);
-					return;
+				
 				
 				}
 				else
 				{
 					System.out.println("Error");
 					RequestDispatcher rd=request.getRequestDispatcher("ErrorAdminLogin.jsp");
-					
+					rd.forward(request,response);
 					
 				}
 			}

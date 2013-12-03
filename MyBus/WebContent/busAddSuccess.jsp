@@ -25,5 +25,6 @@ background-image:url('hd-wallpaper1.jpg');
 	out.println("<h2>The bus has been registered with Our Service.Bus unique Id is BMW2345612"+key+" </h2>");
 %>
 <marquee><h1 style="color:white">you have successfully registered</h1></marquee>
+<input type="button" value="click Here to add another bus" onclick="window.location='BusRegister.jsp'">
 </body>
 </html>

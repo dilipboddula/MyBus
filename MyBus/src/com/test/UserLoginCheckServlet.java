@@ -74,8 +74,8 @@ public class UserLoginCheckServlet extends HttpServlet {
 				else
 				{
 					System.out.println("Error");
-					RequestDispatcher rd=request.getRequestDispatcher("ErrorAdminLogin.jsp");
-					
+					RequestDispatcher rd=request.getRequestDispatcher("ErrorUserLogin.jsp");
+					rd.forward(request,response);
 					
 				}
 			}
