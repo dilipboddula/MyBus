@@ -1,17 +1,15 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*,com.model.BusFilterClass"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>final</title>
+<title>Insert title here</title>
 </head>
 <body>
-<form action="BusPreConfirmServlet">
-		 <table border="1" bgcolor="rgb(238, 17, 203)">		  
+<table border="1" bgcolor="rgb(238, 17, 203)">		  
 		<tr>
-		<th>Select</th>
+		
 		<th >Driver Name</th>
 		<th>From Place</th>
 		<th>To Place</th>
@@ -22,10 +20,13 @@
 		<th>cost</th>
 		</tr>		
 <%
-			ArrayList<BusFilterClass> al=(ArrayList<BusFilterClass>)request.getAttribute("myBusFilterList");
-			  for (BusFilterClass v : al) {	%>	
+String bid=request.getParameter("r1");
+int busId=Integer.parseInt(bid);
+System.out.println(busId);
+			ArrayList<BusFilterClass> al=(ArrayList<BusFilterClass>)request.getAttribute("myBusFilterListDup");
+			  for (BusFilterClass v : al) {	if(v.getBusId()==busId) {%>	
 		<tr>
-		<td><input type="radio" name="r1" value=<%=v.getBusId()%> ></td>
+		
 		<td><%out.println(v.getDrivername()); %></td>				
 		<td><%out.println(v.getFromPlace()); %></td>		
 		<td><%out.println(v.getToPlace()); %></td>		
@@ -34,13 +35,16 @@
 		<td><%out.println(v.getBusType()); %></td>		
 		<td><%out.println(v.getSeats()); %></td>		
 		<td><%out.println(v.getCost()); %></td>		
+		<%session.setAttribute("mySelectedBus",v);
+		session.setAttribute("mySelectedBusId", v.getBusId());
+		session.setAttribute("mySelectBusCost",v.getCost());
+		%>
+		 
 		</tr>
-		<%} %>
+		<%}} %>
 		 </table>
-		 <%request.setAttribute("myBusFilterListDup",al); %>
-		 <input type="submit" value="Books Bus">
-		 </form>
-	  
-
+		 <input type="button" value="Confirm" onclick="window.location='UserLogin.jsp'">
+		 <input type="button" value="go Back" onclick=history.go(-1)>
+		 
 </body>
 </html>

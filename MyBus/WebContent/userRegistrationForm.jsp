@@ -17,12 +17,12 @@
                                     document.myform1.name.focus();
                                 
                                    }
-                              else if (document.myform1.userName.value=="")
-                                   {
-                                    alert("username cannot be null");
-                                    document.myform1.userName.focus();
-                                    
-                                   }
+                              else if (document.myform1.userEmail.value=="")
+                              {
+                               alert("email cannot be null");
+                               document.myform1.userEmail.focus();
+                              }
+                              
                               else if (document.myform1.userPassword.value=="")
                                    {
                                     alert("password cannot be null");
@@ -41,11 +41,12 @@
                                    document.myform1.userPhone.focus();
                                
                                   }
-                              else if (document.myform1.userEmail.value=="")
-                                  {
-                                   alert("email cannot be null");
-                                   document.myform1.userEmail.focus();
-                                  }
+                              else if (document.myform1.userGender[0].checked=="" && document.myform1.userGender[1].checked=="")
+                      		{
+                      		alert("Select userGender");
+                      		document.myform.userGender[0].focus();
+                      		}
+                              
                               else if (document.myform1.userAddress.value=="")
                               {
                             	  alert("Address cannot be null");
@@ -65,17 +66,17 @@
 </script>
 </head>
 <body>
-<form name="myform1" >
+<form name="myform1" action="UserRegisterServlet" >
 <table border="1" bgcolor="rgb(238, 17, 203)">
 
 <tr>
 <td>Name</td>
-    <td><input type ="text" name="name" placeholder="Name"/></td>
+    <td><input type ="text" name="userName" placeholder="Name"/></td>
 </tr>
 
 <tr>
-<td>UserName</td>
-    <td><input type ="text" name="userName" placeholder="Username"/></td>
+<td>email</td>
+    <td><input type ="text" name="userEmail" placeholder="Email"/></td>
 </tr>
 
 <tr>
@@ -87,13 +88,15 @@
     <td><input type ="password" name="userConfirmPassword" placeholder="ConfirmPassword"/></td>
 </tr>
 <tr>
+<td>Gender
+		<td><input class="a" type ="radio" name="userGender" value="Male"/>Male
+      <input class="a" type ="radio" name="userGender" value="Female"/>Killu</td>
+</tr>
+<tr>
 <td>phone</td>
     <td><input type ="text" name="userPhone" placeholder="Phone"/></td>
 </tr>
-<tr>
-<td>email</td>
-    <td><input type ="text" name="userEmail" placeholder="Email"/></td>
-</tr>
+
 <tr>
 <td>Address</td>
     <td><input type ="text" name="userAddress"/></td>
